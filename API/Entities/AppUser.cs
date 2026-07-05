@@ -9,11 +9,10 @@ public class AppUser
     public string Id { get; set; } = Guid.NewGuid().ToString();
     public required string DisplayName { get; set; }
     public required string Email { get; set; }
+    public string? Imageurl { get; set; }
     public required byte[] PasswordHash { get; set; }
     public required byte[] PasswordSalt { get; set; }
 
-    internal ActionResult<UserDTO> ToDto()
-    {
-        throw new NotImplementedException();
-    }
+    // Navigation properties
+    public Member Member { get; set; } = null!;
 }
